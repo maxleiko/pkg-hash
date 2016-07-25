@@ -1,5 +1,5 @@
 {
-  "name": "pg-hash",
+  "name": "pkg-hash",
   "version": "1.0.0",
   "description": "Generates an MD5 hash based on package.json props & dependencies",
   "main": "pkg-hash.js",
