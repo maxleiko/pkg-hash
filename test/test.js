@@ -1,11 +1,11 @@
 'use strict';
 
 var expect = require('expect');
-var pkgHash = require('../package-hash');
+var pkgHash = require('../pkg-hash');
 
 var pkg = require('../package.json');
 
-describe('package-hash tests', function () {
+describe('pkg-hash tests', function () {
 
   var hash;
 

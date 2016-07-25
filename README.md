@@ -1,7 +1,7 @@
-### package-hash
+### pkg-hash
 
 ```js
-var pkgHash = require('package-hash');
+var pkgHash = require('pkg-hash');
 var pkg = require('./package.json'); // require a package.json somewhere
 
 pkgHash(

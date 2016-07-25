@@ -2,13 +2,13 @@
   "name": "package-hash",
   "version": "1.0.0",
   "description": "Generates an MD5 hash based on package.json props & dependencies shasum",
-  "main": "package-hash.js",
+  "main": "pkg-hash.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxleiko/package-hash.git"
+    "url": "git+https://github.com/maxleiko/pkg-hash.git"
   },
   "keywords": [
     "hash",
@@ -19,9 +19,9 @@
   "author": "Maxime Tricoire <max.tricoire@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxleiko/package-hash/issues"
+    "url": "https://github.com/maxleiko/pkg-hash/issues"
   },
-  "homepage": "https://github.com/maxleiko/package-hash#readme",
+  "homepage": "https://github.com/maxleiko/pkg-hash#readme",
   "dependencies": {
     "async": "^2.0.1",
     "package-json": "^2.3.3",
