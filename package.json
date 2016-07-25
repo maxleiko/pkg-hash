@@ -30,5 +30,8 @@
   "devDependencies": {
     "expect": "^1.20.2",
     "mocha": "^2.5.3"
+  },
+  "directories": {
+    "test": "test"
   }
 }
