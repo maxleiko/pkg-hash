@@ -3,23 +3,22 @@
 var expect = require('expect');
 var pkgHash = require('../pkg-hash');
 
-var pkg = require('../package.json');
-
 describe('pkg-hash tests', function () {
-
-  var hash;
-
-  beforeEach('should generate the base hash', function (done) {
-    pkgHash(pkg.name, pkg.dependencies, function (err, hashVal) {
-      hash = hashVal;
-      done(err);
-    });
+  it('should generate different hashes when changes', function () {
+    var hash0 = pkgHash('foo', { bar: '1.2.3' });
+    var hash1 = pkgHash('foo', { bar: '^1.2.3' });
+    expect(hash1).toNotEqual(hash0);
   });
 
-  it('should generate an alternative hash', function (done) {
-    pkgHash(pkg.name + '/' + pkg.version, pkg.dependencies, function (err, hashVal) {
-      expect(hashVal).toNotEqual(hash);
-      done(err);
-    });
+  it('should generate the same hash if no changes', function () {
+    var hash0 = pkgHash('foo', { bar: '1.2.3' });
+    var hash1 = pkgHash('foo', { bar: '1.2.3' });
+    expect(hash1).toEqual(hash0);
+  });
+
+  it('should work with weird params', function () {
+    var hash = pkgHash();
+    expect(typeof hash).toEqual('string');
+    expect(hash.length).toEqual(32);
   });
 });

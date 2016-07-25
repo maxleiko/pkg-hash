@@ -1,7 +1,7 @@
 {
-  "name": "package-hash",
+  "name": "pg-hash",
   "version": "1.0.0",
-  "description": "Generates an MD5 hash based on package.json props & dependencies shasum",
+  "description": "Generates an MD5 hash based on package.json props & dependencies",
   "main": "pkg-hash.js",
   "scripts": {
     "test": "mocha"
@@ -22,11 +22,7 @@
     "url": "https://github.com/maxleiko/pkg-hash/issues"
   },
   "homepage": "https://github.com/maxleiko/pkg-hash#readme",
-  "dependencies": {
-    "async": "^2.0.1",
-    "package-json": "^2.3.3",
-    "semver": "^5.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "expect": "^1.20.2",
     "mocha": "^2.5.3"
