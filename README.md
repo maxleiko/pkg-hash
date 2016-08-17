@@ -1,37 +1,26 @@
 ### pkg-hash
 
-Generates an MD5 hash based on given params.  
-This package expects the `deps` param to be a map of `module:semver|tag`.  
-The hash will be created by following this pattern:
-```
-// pseudo code
-md5(data + '/' + key0 + '@' deps[key0] + '/' + key1 + '@' deps[key1] + ...)
-```
+Generates an MD5 hash of a CommonJS module using Browserify to bundle **only**
+the local files, starting with the main field in `package.json`.  
 
 ### API
 ```
-pkgHash(data, deps): hash
+pkgHash(modulePath, callback): undefined
 ```
- - **data**: [string] will be used as the base string for the hash *(can be null or undefined)*  
- - **deps**: [object] a `package.json` dependencies map  
-   *ie.:*
-   ```js
-   const deps = {
-     'async': '^2',
-     'q': '>1.0.0'
-   };
-   ```
-
-**Returns**
- - **hash**: [string] MD5 hash
+ - **modulePath**:&nbsp;[string]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will be used as the root path for Browserify to bundle the module
+ - **callback**:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[function]&nbsp;&nbsp;will be called when done `function (err: Error, hash: String)`
 
 ### Usage
 ```js
-const pkgHash = require('pkg-hash');
+import pkgHash from 'pkg-hash';
 
-const hash = pkgHash('foo', { bar: '^1.2.3' });
-
-// Typically you would use package.json data:
-// const pkg = require('/path/to/a/package.json');
-// const hash = pkgHash(pkg.name + '/' + pkg.version, pkg.dependencies);
+pkgHash('/path/to/a/module', (err, hash) => {
+  if (err) {
+    // something went wrong
+    throw err;
+  } else {
+    // all good
+    console.log('Hash: ' + hash);
+  }
+});
 ```

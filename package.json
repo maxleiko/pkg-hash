@@ -1,7 +1,7 @@
 {
   "name": "pkg-hash",
-  "version": "1.0.0",
-  "description": "Generates an MD5 hash based on package.json props & dependencies",
+  "version": "2.0.0",
+  "description": "Generates an MD5 hash based on package.json main entry",
   "main": "pkg-hash.js",
   "scripts": {
     "test": "mocha"
@@ -22,7 +22,10 @@
     "url": "https://github.com/maxleiko/pkg-hash/issues"
   },
   "homepage": "https://github.com/maxleiko/pkg-hash#readme",
-  "dependencies": {},
+  "dependencies": {
+    "browserify": "^13.1.0",
+    "memory-streams": "^0.1.0"
+  },
   "devDependencies": {
     "expect": "^1.20.2",
     "mocha": "^2.5.3"

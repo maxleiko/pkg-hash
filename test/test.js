@@ -1,24 +1,41 @@
 'use strict';
 
-var expect = require('expect');
-var pkgHash = require('../pkg-hash');
+const path = require('path');
+const expect = require('expect');
+const pkgHash = require('../pkg-hash');
 
-describe('pkg-hash tests', function () {
-  it('should generate different hashes when changes', function () {
-    var hash0 = pkgHash('foo', { bar: '1.2.3' });
-    var hash1 = pkgHash('foo', { bar: '^1.2.3' });
-    expect(hash1).toNotEqual(hash0);
+describe('pkg-hash tests', () => {
+  it('should generate the same hashes for the same modules', done => {
+    pkgHash(path.join(__dirname, '..'), (err, hash1) => {
+      if (err) {
+        done(err);
+      } else {
+        pkgHash(path.join(__dirname, '..'), (err, hash2) => {
+          if (err) {
+            done(err);
+          } else {
+            expect(hash2).toEqual(hash1);
+            done();
+          }
+        });
+      }
+    });
   });
 
-  it('should generate the same hash if no changes', function () {
-    var hash0 = pkgHash('foo', { bar: '1.2.3' });
-    var hash1 = pkgHash('foo', { bar: '1.2.3' });
-    expect(hash1).toEqual(hash0);
-  });
-
-  it('should work with weird params', function () {
-    var hash = pkgHash();
-    expect(typeof hash).toEqual('string');
-    expect(hash.length).toEqual(32);
+  it('should generate different hashes for different modules', done => {
+    pkgHash(path.join(__dirname, 'fixtures', 'module0'), (err, hash1) => {
+      if (err) {
+        done(err);
+      } else {
+        pkgHash(path.join(__dirname, 'fixtures', 'module1'), (err, hash2) => {
+          if (err) {
+            done(err);
+          } else {
+            expect(hash2).toNotEqual(hash1);
+            done();
+          }
+        });
+      }
+    });
   });
 });
