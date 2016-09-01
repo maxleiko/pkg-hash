@@ -38,4 +38,8 @@ describe('pkg-hash tests', () => {
       }
     });
   });
+
+  it('should use all local files to generate the hash', done => {
+    pkgHash(path.join(__dirname, 'fixtures', 'module2'), done);
+  });
 });

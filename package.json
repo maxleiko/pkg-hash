@@ -1,7 +1,7 @@
 {
   "name": "pkg-hash",
-  "version": "2.0.0",
-  "description": "Generates an MD5 hash based on package.json main entry",
+  "version": "2.1.0",
+  "description": "Generates an MD5 hash based on folder package.json main entry point and all local files required",
   "main": "pkg-hash.js",
   "scripts": {
     "test": "mocha"
@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/maxleiko/pkg-hash#readme",
   "dependencies": {
-    "browserify": "^13.1.0",
-    "memory-streams": "^0.1.0"
+    "async": "^2.0.1",
+    "detective": "^4.3.1"
   },
   "devDependencies": {
     "expect": "^1.20.2",
