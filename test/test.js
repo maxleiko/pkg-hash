@@ -42,4 +42,15 @@ describe('pkg-hash tests', () => {
   it('should use all local files to generate the hash', done => {
     pkgHash(path.join(__dirname, 'fixtures', 'module2'), done);
   });
+
+  it('should work with weird file extensions', done => {
+    pkgHash(path.join(__dirname, 'fixtures', 'module3'), (err, hash) => {
+      if (err) {
+        done(err);
+      } else {
+        expect(hash).toExist();
+        done();
+      }
+    });
+  });
 });
