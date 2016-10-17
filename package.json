@@ -1,8 +1,9 @@
 {
   "name": "pkg-hash",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Generates an MD5 hash based on folder package.json main entry point and all local files required",
   "main": "pkg-hash.js",
+  "bin": "./bin/cli.js",
   "scripts": {
     "test": "mocha"
   },
