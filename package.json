@@ -1,11 +1,11 @@
 {
   "name": "pkg-hash",
-  "version": "2.2.1",
-  "description": "Generates an MD5 hash based on folder package.json main entry point and all local files required",
+  "version": "3.0.0",
+  "description": "Generates an MD5 hash based on your local source code using package.json \"main\" as entry and hashing every local require sources using Acorn and a proper AST",
   "main": "pkg-hash.js",
-  "bin": "./bin/cli.js",
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint pkg-hash.js test",
+    "test": "npm run lint && mocha"
   },
   "repository": {
     "type": "git",
@@ -24,14 +24,21 @@
   },
   "homepage": "https://github.com/maxleiko/pkg-hash#readme",
   "dependencies": {
-    "async": "^2.0.1",
     "detective": "^4.3.1"
   },
   "devDependencies": {
-    "expect": "^1.20.2",
+    "eslint": "^3.12.2",
     "mocha": "^2.5.3"
   },
   "directories": {
     "test": "test"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ]
   }
 }
