@@ -1,6 +1,6 @@
 {
   "name": "pkg-hash",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Generates an MD5 hash based on your local source code using package.json \"main\" as entry and hashing every local require sources using Acorn and a proper AST",
   "main": "pkg-hash.js",
   "scripts": {
@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/maxleiko/pkg-hash#readme",
   "dependencies": {
-    "detective": "^4.3.1"
+    "detective": "^4.3.1",
+    "resolve": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^3.12.2",
